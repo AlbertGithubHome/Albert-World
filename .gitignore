@@ -44,3 +44,25 @@ Temporary Items
 
 # special file and dir
 __pycache__
+
+#just for JustTry project
+*.obj
+*.manifest
+*.manifest.res
+*.exp
+*.ilk
+*.pch
+*.pch.ib_tag
+*.pdb
+*.res
+*.tlb
+*.dep
+*.idb
+
+*.tlh
+*.tli
+
+*.ncb
+
+
+
