@@ -1,0 +1,26 @@
+HKCR
+{
+	FirstCOM.math.1 = s 'FirstClass Class'
+	{
+		CLSID = s '{231DCFA3-061F-4671-84CC-F469E4BCB5EB}'
+	}
+	FirstCOM.math = s 'FirstClass Class'
+	{
+		CLSID = s '{231DCFA3-061F-4671-84CC-F469E4BCB5EB}'
+		CurVer = s 'FirstCOM.math.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {231DCFA3-061F-4671-84CC-F469E4BCB5EB} = s 'FirstClass Class'
+		{
+			ProgID = s 'FirstCOM.math.1'
+			VersionIndependentProgID = s 'FirstCOM.math'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{E8ED724F-CAA8-4595-9DFD-1BD18105CE22}'
+		}
+	}
+}

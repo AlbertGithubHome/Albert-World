@@ -1,0 +1,22 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'FirstCOM'
+		'FirstCOM.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3CA226EA-D79C-4668-BFBF-CA1B48370F2F} = s 'CompReg Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{E8ED724F-CAA8-4595-9DFD-1BD18105CE22}'
+		}
+	}
+}

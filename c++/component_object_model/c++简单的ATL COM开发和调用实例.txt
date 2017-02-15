@@ -1,0 +1,9 @@
+http://blog.csdn.net/ghevinn/article/details/31729951
+
+ 1、打开VS2010，新建ATL COM 项目，步骤：“文件” --》“新建” --》“项目”，选择“Visual C++” --》“ATL 项目” ，填写“名称” FirstCOM --》“确定”。
+
+2、ATL 项目向导，勾选 【支持COM+ 1.0】和【支持部件注册器】，其他默认，点击完成。
+
+3、切换到类视图，右键单击项目“FirstCOM”--》“添加”  --》“类”。
+
+。。。
