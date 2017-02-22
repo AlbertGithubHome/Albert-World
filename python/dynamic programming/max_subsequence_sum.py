@@ -1,6 +1,5 @@
 # 定义初始盈利数据
 base_data = [1, -6, 11, -4, 13, -5, 2, -5, -3, 12, -9]
-base_data = [-1, -6, 11, 4, -13, 5, -2, 5, -3, -12, -9]
 print("项目列表为:%s" % base_data)
 
 def MaxSubSeqSum(data, n):
