@@ -32,3 +32,5 @@ if result[0] > 0:
         % (result[0], result[1] + 1, result[2] + 1))
 else:
     print("没有最大盈利，这批项目都是坑人的")
+
+print()

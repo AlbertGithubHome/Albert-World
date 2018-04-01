@@ -23,8 +23,10 @@ def get_length_by_pos_index(index):
     if pre_index < 0:
         pre_index = len(PosInfo) - 1
 
-    return math.hypot(PosInfo[index][0] - PosInfo[pre_index][0], 
-        PosInfo[index][1] - PosInfo[pre_index][1])
+    return math.hypot(PosInfo[index][0] - 
+        PosInfo[pre_index][0], 
+        PosInfo[index][1] - 
+        PosInfo[pre_index][1])
 
 def calc_rope_length():
     role_length = 0.0
