@@ -79,10 +79,16 @@ javac 1.8.0_242
 
 # 安装Jenkins
 
-[Jenkins 网盘地址](https://pan.baidu.com/s/1ju6Bin282nMM1wJjSz18LQs)
+参考 [ubuntu 下搭建 Jenkins 并配置部署环境](https://www.cnblogs.com/shuoer/p/9471839.html)
+[ubuntu16.04系统安装jenkins](https://blog.csdn.net/frank_ldw/article/details/99675930)
 
-安装参考 https://www.cnblogs.com/wuxunyan/p/9592953.html
-https://www.jianshu.com/p/b23cd5a35091
-https://www.jianshu.com/p/de9c4f5ae7fa
-https://www.cnblogs.com/xingphimo/p/11098273.html
-还没有尝试
+注意  修改source.list add : deb https://pkg.jenkins.io/debian binary/ 第一篇参考写得不太详细
+
+# 配置Jenkins
+
+参考 [ubuntu 下搭建 Jenkins 并配置部署环境](https://www.cnblogs.com/shuoer/p/9471839.html)
+[Ubuntu 16.04 安装Jenkins持续集成](https://www.linuxidc.com/Linux/2016-12/138290.htm)
+
+插件安装如果一直都完不成，刷新界面就好，最终只有 Folders 没有安装成功
+
+admin:admin

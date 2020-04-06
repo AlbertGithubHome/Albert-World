@@ -50,3 +50,11 @@ Path            %CATALINA_HOME%\lib;%CATALINA_HOME%\lib\servlet-api.jar;%CATALIN
 ```
 
 # 安装Jenkins
+
+[Jenkins 网盘地址](https://pan.baidu.com/s/1ju6Bin282nMM1wJjSz18LQs)
+
+安装参考 https://www.cnblogs.com/wuxunyan/p/9592953.html
+https://www.jianshu.com/p/b23cd5a35091
+https://www.jianshu.com/p/de9c4f5ae7fa
+https://www.cnblogs.com/xingphimo/p/11098273.html
+还没有尝试
