@@ -64,5 +64,7 @@ __pycache__
 
 *.ncb
 
-
+# folder
+_book
+node_modules
 
