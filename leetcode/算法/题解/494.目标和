@@ -1,0 +1,41 @@
+# 494.目标和
+
+### 解题思路
+a: 添加正号数字的和
+b: 添加负号数字的和（绝对值）
+
+a + b = sum;
+a - b = target;
+
+找到满足条件的a和b有多少种？
+
+因为是二元一次方程，所有a确定则b确定 => a = (sum + target) / 2;
+因为都是正整数，所以 a 必须为非负偶数，所以a不满足这个条件可以直接返回0
+
+然后转化成从n个商品中选择重量为a的商品装进0-1背包的问题
+
+### 代码
+
+```cpp
+class Solution {
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        int diff = sum + target;
+        if (diff < 0 || diff % 2 ) return 0;
+
+        int n = nums.size(), some = diff / 2;
+        vector<int> dp(some + 1);
+        dp[0] = 1;
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = some; ~j; j--) {
+                if (j >= nums[i-1]) dp[j] += dp[j - nums[i-1]];
+            }
+        }
+        return dp[some];
+    }
+};
+```
+
+![图片.png](https://pic.leetcode-cn.com/1623083572-vnwDTM-%E5%9B%BE%E7%89%87.png)
