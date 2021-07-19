@@ -18,6 +18,7 @@ var b2Vec2 = Box2D.Common.Math.b2Vec2
 var world, fixDef, bodyDef;
 var bomb = null;
 var context;
+var canvasPosition;
 
 function main () {
 	world = new b2World(new b2Vec2(0, 10), true);
@@ -30,6 +31,13 @@ function main () {
 	bodyDef = new b2BodyDef();
 
 	context = document.getElementById("mycanvas").getContext("2d");
+
+	canvasPosition = getElementPosition(document.getElementById("mycanvas"));
+
+
+	document.addEventListener("mousedown", function(e){
+        createBall(e.clientX-canvasPosition.x,e.clientY-canvasPosition.y, document.getElementById("sun"));
+    });
 	
 
 	createGround();
@@ -37,6 +45,19 @@ function main () {
 	createDebugDraw();
 	setInterval(update, 1000 / 60);
 }
+
+function createBall(pX,pY,data){
+	fixDef.shape = new b2CircleShape(0.2+Math.random()/2);
+
+	bodyDef.type = b2Body.b2_dynamicBody;
+	bodyDef.userData = data;
+
+	bodyDef.position.Set(pX/30,pY/30);
+
+	bomb = world.CreateBody(bodyDef);
+	bomb.userData = "iambomb" + i;
+	bomb.CreateFixture(fixDef)
+} 
 
 function createGround () {
 	var vertices = [
@@ -125,20 +146,29 @@ function createGround () {
 
 
 function createBomb () {
-	for (var i = 0; i < 8; i++)
+	for (var i = 0; i < 9; i++)
 	{
-		fixDef.shape = new b2CircleShape(0.2+Math.random());
+		fixDef.shape = new b2CircleShape(0.2+Math.random()/2);
 
 		bodyDef.type = b2Body.b2_dynamicBody;
 		// bodyDef.density = 3;
 		// bodyDef.friction = 0.3;
 		// bodyDef.restitution = 0.2;
 		// bodyDef.radius = 0.5+Math.random();
-		bodyDef.userData=document.getElementById("blueball");
+		// bodyDef.userData = document.getElementById("blueball");
+		if (i % 3 == 0) {
+			bodyDef.userData = document.getElementById("blueball");
+		}
+		else if (i % 3 == 1) {
+			bodyDef.userData = document.getElementById("caiball");
+		}
+		else {
+			bodyDef.userData = document.getElementById("redball");
+		}
 		bodyDef.position.Set(5, 1);
 
 		bomb = world.CreateBody(bodyDef);
-		bomb.userData = "iambomb"+i;
+		bomb.userData = "iambomb" + i;
 		bomb.CreateFixture(fixDef);
 
 	}
@@ -172,3 +202,22 @@ function update () {
 	}
 	world.ClearForces();
 }
+
+
+function getElementPosition(element) {
+	var elem=element, tagname="", x=0, y=0;
+	while((typeof(elem) == "object") && (typeof(elem.tagName) != "undefined")) {
+			y += elem.offsetTop;
+			x += elem.offsetLeft;
+			tagname = elem.tagName.toUpperCase();
+			if(tagname == "BODY"){
+					elem=0;
+			}
+			if(typeof(elem) == "object"){
+					if(typeof(elem.offsetParent) == "object"){
+							elem = elem.offsetParent;
+					}
+			}
+	}
+	return {x: x, y: y};
+} 
