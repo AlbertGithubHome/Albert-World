@@ -29,6 +29,7 @@ var bomb = null;
 var clickRes = "sun"
 var loadRes = "huihui"
 var ballNums = 10
+var initVelocity = 5
 //==================================
 
 function main() {
@@ -96,6 +97,8 @@ function createBall(x, y, data, index){
     bomb = world.CreateBody(bodyDef);
     bomb.userData = "iamball_" + index;
     bomb.CreateFixture(fixDef)
+
+    return bomb;
 } 
 
 function createBox(x, y, boxHalfWidth, boxHalfHeight, type, data)
@@ -112,7 +115,12 @@ function createBox(x, y, boxHalfWidth, boxHalfHeight, type, data)
 
 function createFallingObjets () {
     for (var i = 0; i < ballNums; i++) {
-        createBall(5, 1, document.getElementById(loadRes), i);
+        ball = createBall(5, 1, document.getElementById(loadRes), i);
+        ball.SetLinearVelocity(new b2Vec2(ball.GetLinearVelocity().x + initVelocity, ball.GetLinearVelocity().y + initVelocity));
+        
+        //var buoyancyForce = this.gravity.GetNegative();
+        //var buoyancyForce = new b2Vec2(0, 19.8);
+        //ball.ApplyForce(buoyancyForce, ball.GetWorldCenter());
     }
     
     for(var i = 0; i < 2; i++) {
@@ -160,11 +168,8 @@ function getElementPosition(element) {
         if (tagName == "BODY") {
             elem = 0;
         }
-
-        if (typeof(elem) == "object") {
-            if(typeof(elem.offsetParent) == "object") {
-                    elem = elem.offsetParent;
-            }
+        else if (typeof(elem) == "object" && typeof(elem.offsetParent) == "object") {
+            elem = elem.offsetParent;
         }
     }
     return {x: x, y: y};
