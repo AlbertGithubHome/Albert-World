@@ -146,7 +146,7 @@ function createGround () {
 
 
 function createBomb () {
-	for (var i = 0; i < 9; i++)
+	for (var i = 0; i < 10; i++)
 	{
 		fixDef.shape = new b2CircleShape(0.2+Math.random()/2);
 
@@ -154,24 +154,35 @@ function createBomb () {
 		// bodyDef.density = 3;
 		// bodyDef.friction = 0.3;
 		// bodyDef.restitution = 0.2;
-		// bodyDef.radius = 0.5+Math.random();
-		// bodyDef.userData = document.getElementById("blueball");
-		if (i % 3 == 0) {
-			bodyDef.userData = document.getElementById("blueball");
-		}
-		else if (i % 3 == 1) {
-			bodyDef.userData = document.getElementById("caiball");
-		}
-		else {
-			bodyDef.userData = document.getElementById("redball");
-		}
+		// bodyDef.radius = 0.5+Math.random()16
+		bodyDef.userData = document.getElementById("dog");
+		// if (i % 3 == 0) {
+		// 	bodyDef.userData = document.getElementById("blueball");
+		// }
+		// else if (i % 3 == 1) {
+		// 	bodyDef.userData = document.getElementById("caiball");
+		// }
+		// else {
+		// 	bodyDef.userData = document.getElementById("redball");
+		// }
 		bodyDef.position.Set(5, 1);
 
 		bomb = world.CreateBody(bodyDef);
 		bomb.userData = "iambomb" + i;
 		bomb.CreateFixture(fixDef);
-
 	}
+
+	// for (var i = 0; i < 10; i++)
+	// {
+	// 	fixDef.shape = new b2PolygonShape();	
+	// 	fixDef.shape.SetAsBox(0.5, 0.5);
+
+	// 	bodyDef.type = b2Body.b2_dynamicBody;
+	// 	bodyDef.userData = document.getElementById("dog");
+	// 	bodyDef.position.Set(5, 1);
+
+	// 	world.CreateBody(bodyDef).CreateFixture(fixDef)
+	// }
 }
 
 function createDebugDraw () {
