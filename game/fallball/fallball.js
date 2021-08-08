@@ -28,6 +28,7 @@ var bomb = null;
 //==================================
 var clickRes = "sun"
 var loadRes = "huihui"
+var ballNums = 10
 //==================================
 
 function main() {
@@ -57,8 +58,8 @@ function main() {
 
 function createGround () {
 
-    triangleWidth = 20
-    triangleHeight = 8
+    triangleWidth = 25
+    triangleHeight = 10
     deltaHeight = triangleHeight / 2
 
     for (var i = 0; i < 4; i++) {
@@ -110,7 +111,7 @@ function createBox(x, y, boxHalfWidth, boxHalfHeight, type, data)
 }
 
 function createFallingObjets () {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < ballNums; i++) {
         createBall(5, 1, document.getElementById(loadRes), i);
     }
     
